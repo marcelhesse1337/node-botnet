@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Control Pannel</title>
+<link rel="stylesheet" type="text/css" href="view.css" media="all">
+<script type="text/javascript" src="view.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body id="main_body" >
+	
+	<div id="form_container">
+	
+		<h1><a>Control Pannel</a></h1>
+		<form id="theform" class="appnitro"  method="post" action="http://127.0.0.1:3000/api/post">
+					<div class="form_description">
+			<h2>Control Pannel</h2>
+			<p>Enter data, click send!</p>
+		</div>						
+			<ul >
+			
+					<li id="li_4" >
+		<label class="description" for="element_4">Status </label>
+		<span>
+			<input id="status" name="status" class="element checkbox" type="checkbox" value="1" />
+<label class="choice" for="element_4_1">On</label>
+
+		</span> 
+		</li>		<li id="li_1" >
+		<label class="description" for="element_1">Target </label>
+		<div>
+			<input id="target" name="target" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>		
+		<li id="li_2" >
+		<label class="description" for="element_2">Port </label>
+		<div>
+			<input id="port" name="port" class="element text small" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>		
+		<li id="li_3" >
+		<label class="description" for="element_3">Time </label>
+		<div>
+			<input id="time" name="time" class="element text small" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+		<li id="li_4" >
+		<label class="description" for="element_2">Password </label>
+		<div>
+			<input id="auth" name="auth" class="element text small" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>
+			
+		<li class="buttons">
+			    <input type="hidden" name="form_id" value="1084051" />
+			    
+				<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+		</li>
+		</ul>
+		<script>
+		$("#theform").submit(function() {
+
+   		var url = "http://127.0.0.1:3000/api/post"; // the script where you handle the form input.
+   		alert($("#theform").serialize());
+    	$.ajax({
+           type: "POST",
+           url: url,
+           data: checked + $("#theform").serialize(), // serializes the form's elements.
+           success: function(data){
+               alert(data); // show response from the php script.
+           		}
+        	});
+		});
+
+		</script>
+
+		</form>	
+	</div>
+	</body>
+</html>
