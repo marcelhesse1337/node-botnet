@@ -22,14 +22,16 @@ app.all('/*', function(req, res, next) {
 });
 
 app.get('/api', function (req, res) {
-	res.send({'status': status,
-	'target': target,
-	'port': port,
-	'time': time});
+	res.send({
+		'status': status,
+		'target': target,
+		'port': port,
+		'time': time
+	});
 });
 
 app.get('/ui', function (req, res) {
-	res.sendFile(__dirname + "/static/site/form.html");
+	res.sendFile(__dirname + "/static/form.html");
 });
 
 app.get('/', function (req, res) {
