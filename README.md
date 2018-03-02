@@ -5,24 +5,11 @@ Bots are collected by putting the code in ```victims.js``` on the webpage they a
 
 Uses express.js to host a control center and API for the bots to connect to.
 
-#Instructions and Information
+# Setup
 
-To start server:
+To start the server:
 
-```node app.js``` 
+`node app.js`
 
-Server starts on localhost:3000
-
-	/api 
-	
-	recieves the information each bot needs.
-
-	/ui 
-	
-	displays the forum for sending new information to the bots. 
-
+Server runs on localhost:3000 by default
 Default password is "98frayw4fa4hw"
-
-	/api/post
-	
-	is what the forum uses to post information that is recieved with /api
