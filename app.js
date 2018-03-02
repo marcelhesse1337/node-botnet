@@ -8,7 +8,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
 app.use('/assets', express.static('static'));
 
-const authcode = "98frayw4fa4hw";
+const AUTHCODE = "98frayw4fa4hw";
 
 var status = "0";
 var target = "0.0.0.0";
@@ -44,7 +44,7 @@ app.get('/test', function (req, res) {
 
 app.post('/api/post', function (req, res) {
 
-	if (req.body.auth == authcode){
+	if (req.body.auth == AUTHCODE){
 
 		if (req.body.status == undefined){
 			status = 0;
