@@ -8,11 +8,12 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
 app.use('/assets', express.static('static'));
 
+const authcode = "98frayw4fa4hw";
+
 var status = "0";
 var target = "0.0.0.0";
 var port = "80";
 var time = "5";
-var authcode = "98frayw4fa4hw";
 
 app.get('/api', function (req, res) {
 	//res.append('Access-Control-Allow-Origin','http://127.0.0.1:3000/');
@@ -34,7 +35,7 @@ app.get('/', function (req, res) {
 app.post('/api/post', function (req, res) {
 
 	if (req.body.auth == authcode){
-		
+
 		if (req.body.status == undefined){
 			status = 0;
 		}else{
@@ -51,12 +52,12 @@ app.post('/api/post', function (req, res) {
 		);
 		res.send('recieved');
 	} else{
-		console.log('Post recieved with bad auth:\n     ' 
+		console.log('Post recieved with bad auth:\n     '
 			+ req.body.auth +
 			-'\n     From: ' + req.ip);
 		res.send('bad auth');
 	}
-	
+
 });
 
 var server = app.listen(3000, function () {

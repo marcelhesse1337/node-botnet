@@ -1,12 +1,12 @@
 {
-  "name": "Node botnet",
+  "name": "Node XSS botnet",
   "version": "0.0.1",
-  "description": "Node botnet",
+  "description": "Node XSS botnet",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Tim",
+  "author": "Tim Beck",
   "license": "BSD-2-Clause",
   "dependencies": {
     "express": "~4.13.3"
